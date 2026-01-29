@@ -16,7 +16,7 @@ import com.example.board.entity.Board;
  * 수행합니다.
  */
 @Repository // 스프링 컨테이너에 빈(Bean)으로 등록합니다.
-public interface BoardRepository extends JpaRepository<Board, Long> {
+public interface BoardRepository extends JpaRepository<Board, Integer> {
 
     /**
      * JpaRepository<Board, Integer> 상속의 의미:

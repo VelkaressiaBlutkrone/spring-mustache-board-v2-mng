@@ -25,7 +25,7 @@ public class BoardService {
     }
 
     public Optional<Board> board(String id) {
-        return repository.findById(Long.parseLong(id));
+        return repository.findById(Integer.parseInt(id));
     }
 
     @Transactional
@@ -34,7 +34,7 @@ public class BoardService {
     }
 
     public void update(String id, BoardRequestDto dto) {
-        Board board = repository.findById(Long.parseLong(id)).orElse(null);
+        Board board = repository.findById(Integer.parseInt(id)).orElseGet(null);
 
         if (board != null) {
             board.setTitle(dto.getTitle());
@@ -43,7 +43,7 @@ public class BoardService {
 
     @Transactional
     public void delete(String id) {
-        Board delItem = repository.findById(Long.parseLong(id)).orElse(null);
+        Board delItem = repository.findById(Integer.parseInt(id)).orElse(null);
 
         if (delItem != null) {
             repository.delete(delItem);
